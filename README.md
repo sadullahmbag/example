@@ -13,4 +13,4 @@ This implementation runs entirely in the browser. User data and transcripts are 
 5. View the parsed transcript in a table and export it as CSV, JSON or plain text.
 6. Log out to clear session data.
 
-See the in-app guidance page for formatting tips.
+See the **Researcher Guidance** page for transcript formatting tips. The new **Interview Guide** section summarises best practices for conducting qualitative interviews.

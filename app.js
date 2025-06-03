@@ -16,6 +16,7 @@
         { id: 'dashboard', label: 'My Interviews' },
         { id: 'upload', label: 'New Transcript Upload' },
         { id: 'help', label: 'Researcher Guidance' },
+        { id: 'education', label: 'Interview Guide' },
         { id: 'logout', label: 'Logout' }
       ];
       links.forEach(l => {
@@ -45,6 +46,7 @@
       case 'upload': showUpload(); break;
       case 'view': showViewer(data); break;
       case 'help': showHelp(); break;
+      case 'education': showEducation(); break;
       default: showLogin();
     }
   }
@@ -263,6 +265,92 @@
       <p>Format your transcript using explicit speaker tags on each line:</p>
       <pre>Interviewer: Hello\nParticipant: Hi there</pre>
       <p>Common issues include missing prefixes or multi-line utterances. Ensure each line contains one utterance.</p>
+    `;
+    content.appendChild(div);
+  }
+
+  function showEducation() {
+    if (!currentUser) { router('login'); return; }
+    content.innerHTML = '';
+    const div = document.createElement('div');
+    div.className = 'container';
+    div.innerHTML = `
+      <h2>Interview Guide</h2>
+      <p>Below is a step-by-step playbook you can adapt for most qualitative projects. It draws on guidance from Bryman, Baxter & Babbie, and Corbin & Strauss.</p>
+      <ol>
+        <li><strong>Clarify why you are interviewing</strong>
+          <ul>
+            <li>Link to the research question and what interviewees can report.</li>
+            <li>Choose the style that fits your aims:
+              <ul>
+                <li>Structured &ndash; comparability across participants.</li>
+                <li>Semi-structured &ndash; core guide with freedom to probe.</li>
+                <li>Unstructured/life-history &ndash; participant led.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><strong>Sampling and recruiting</strong>
+          <ul>
+            <li>Define a population that illuminates your phenomenon.</li>
+            <li>Use purposeful strategies such as maximum variation or snowball sampling.</li>
+            <li>Stop when thematic saturation is reached (often 15&ndash;30 interviews).</li>
+          </ul>
+        </li>
+        <li><strong>Design the interview guide</strong>
+          <ul>
+            <li>Begin with warm-up questions; move from descriptive to reflective.</li>
+            <li>Keep a short list of core questions and probes.</li>
+            <li>Check alignment with your conceptual framework and pilot-test.</li>
+          </ul>
+        </li>
+        <li><strong>Ethics and logistics</strong>
+          <ul>
+            <li>Obtain ethics approval and create a clear consent form.</li>
+            <li>Plan how you will record interviews and ensure privacy.</li>
+          </ul>
+        </li>
+        <li><strong>Conducting the interview</strong>
+          <ul>
+            <li>Establish rapport and follow the guide flexibly.</li>
+            <li>Probe for depth and meaning; respect silences.</li>
+          </ul>
+        </li>
+        <li><strong>After the interview</strong>
+          <ul>
+            <li>Write field notes immediately and transcribe verbatim.</li>
+            <li>De-identify data and store materials securely.</li>
+          </ul>
+        </li>
+        <li><strong>Analyse the material</strong>
+          <ul>
+            <li>Start with open coding then move to focused or axial coding.</li>
+            <li>Integrate categories into themes or a process model.</li>
+            <li>Software such as NVivo or MAXQDA can help with large datasets.</li>
+          </ul>
+        </li>
+        <li><strong>Ensure quality and credibility</strong>
+          <ul>
+            <li>Member-check, keep an audit trail, and write reflexive memos.</li>
+            <li>Provide thick description for transferability.</li>
+          </ul>
+        </li>
+        <li><strong>Reporting findings</strong>
+          <ul>
+            <li>Describe your methods clearly and present themes with anonymised quotes.</li>
+            <li>Discuss how the themes relate to existing literature.</li>
+          </ul>
+        </li>
+      </ol>
+      <h3>Quick checklist</h3>
+      <ul>
+        <li>Research question and interview purpose aligned</li>
+        <li>Sampling plan and consent approved</li>
+        <li>Guide piloted</li>
+        <li>Recording and data security organised</li>
+        <li>Transparent coding, reflexive notes, and audit trail</li>
+        <li>Illustrative, anonymised quotations in the write-up</li>
+      </ul>
     `;
     content.appendChild(div);
   }
